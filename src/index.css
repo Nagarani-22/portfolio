@@ -41,6 +41,43 @@ img { max-width: 100%; display: block; }
 .section { padding: 80px 0; }
 .section-alt { background: var(--bg-alt); }
 
+/* ─── Per-section backgrounds ─────────────────────────────────── */
+#experience {
+  background: linear-gradient(150deg, #f5f3ff 0%, #ede9fe 100%);
+}
+#skills {
+  background: linear-gradient(150deg, #f0fdf4 0%, #d1fae5 100%);
+}
+#projects {
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+}
+#projects .section-label { color: #a5b4fc; }
+#projects .section-title { color: #fff; }
+#projects .section-divider { background: linear-gradient(90deg, #818cf8, #06b6d4); }
+#education {
+  background: linear-gradient(150deg, #eff6ff 0%, #dbeafe 100%);
+}
+#certifications {
+  background: linear-gradient(150deg, #faf5ff 0%, #ede9fe 100%);
+}
+#contact {
+  background: linear-gradient(135deg, #1e1b4b 0%, #0e2744 100%);
+}
+#contact .section-label { color: #a5b4fc; }
+#contact .section-title { color: #fff; }
+#contact .section-divider { background: linear-gradient(90deg, #818cf8, #06b6d4); }
+#contact .contact-intro { color: rgba(255,255,255,0.6); }
+#contact .contact-link-card {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.85);
+}
+#contact .contact-link-card:hover {
+  border-color: #818cf8;
+  background: rgba(129,140,248,0.15);
+  color: #a5b4fc;
+}
+
 /* ─── Section headings ────────────────────────────────────────── */
 .section-header { text-align: center; margin-bottom: 56px; }
 .section-label {
