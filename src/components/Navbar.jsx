@@ -5,11 +5,24 @@ const LINKS = ['About', 'Experience', 'Skills', 'Projects', 'Education', 'Contac
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [active, setActive] = useState('')
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    const sections = LINKS.map(l => document.getElementById(l.toLowerCase())).filter(Boolean)
+    const obs = new IntersectionObserver(
+      entries => {
+        entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id) })
+      },
+      { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
+    )
+    sections.forEach(s => obs.observe(s))
+    return () => obs.disconnect()
   }, [])
 
   useEffect(() => {
@@ -27,7 +40,11 @@ export default function Navbar() {
         <ul className={`nav-links${menuOpen ? ' open' : ''}`}>
           {LINKS.map(l => (
             <li key={l}>
-              <a href={`#${l.toLowerCase()}`} onClick={close}>{l}</a>
+              <a
+                href={`#${l.toLowerCase()}`}
+                onClick={close}
+                className={active === l.toLowerCase() ? 'nav-active' : ''}
+              >{l}</a>
             </li>
           ))}
           <li>
