@@ -167,12 +167,91 @@ img { max-width: 100%; display: block; }
   background: radial-gradient(ellipse at 70% 50%, rgba(99,102,241,0.18) 0%, transparent 60%);
   pointer-events: none;
 }
+/* 2-column hero layout */
+.hero-2col {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  width: 100%;
+}
 .hero-inner {
   position: relative;
   z-index: 1;
-  text-align: center;
+  text-align: left;
   color: #fff;
+  flex: 1;
+}
+
+/* Photo */
+.hero-photo-wrap {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+.hero-photo-ring {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, #818cf8, #4f46e5, #06b6d4);
+  box-shadow: 0 0 40px rgba(129,140,248,0.35);
+  position: relative;
+}
+.hero-photo {
   width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.hero-photo-fallback {
+  display: none;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4f46e5, #06b6d4);
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -1px;
+}
+
+/* Icon-only social links */
+.hero-socials {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.social-icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.65);
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.social-icon-link svg { width: 18px; height: 18px; }
+.social-icon-link:hover { color: #fff; border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.08); }
+
+/* Phone line */
+.hero-phone {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.82rem;
+  margin-top: 12px;
 }
 .hero-badge {
   display: inline-flex;
@@ -213,9 +292,9 @@ img { max-width: 100%; display: block; }
 }
 .hero-stats {
   display: flex;
-  justify-content: center;
-  gap: 48px;
-  margin-bottom: 44px;
+  justify-content: flex-start;
+  gap: 36px;
+  margin-bottom: 32px;
   flex-wrap: wrap;
 }
 .hero-stat { text-align: center; }
@@ -265,26 +344,6 @@ img { max-width: 100%; display: block; }
   display: inline-block;
 }
 .btn-outline:hover { border-color: rgba(255,255,255,0.8); color: #fff; transform: translateY(-2px); }
-.hero-socials {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.social-link {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: rgba(255,255,255,0.5);
-  font-size: 0.8rem;
-  font-weight: 500;
-  transition: color 0.2s, border-color 0.2s;
-  padding: 6px 14px;
-  border-radius: 6px;
-  border: 1px solid rgba(255,255,255,0.1);
-}
-.social-link:hover { color: #fff; border-color: rgba(255,255,255,0.35); }
-.social-link svg { width: 15px; height: 15px; flex-shrink: 0; }
 .hero-scroll {
   position: absolute;
   bottom: 2rem;
@@ -629,6 +688,7 @@ img { max-width: 100%; display: block; }
 /* ═══════════════════════════════════════════════════════════════ */
 .contact-inner { max-width: 680px; margin: 0 auto; text-align: center; }
 .contact-intro { font-size: 1rem; color: var(--text-muted); margin-bottom: 36px; line-height: 1.8; }
+.contact-cta-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin-bottom: 40px; }
 .contact-email-btn {
   display: inline-flex;
   align-items: center;
@@ -640,10 +700,24 @@ img { max-width: 100%; display: block; }
   padding: 0.85rem 2.4rem;
   border-radius: 8px;
   transition: background 0.2s, transform 0.2s;
-  margin-bottom: 40px;
 }
 .contact-email-btn:hover { background: var(--accent-hover); transform: translateY(-2px); color: #fff; }
 .contact-email-btn svg { width: 18px; height: 18px; }
+.contact-phone-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  color: var(--accent);
+  font-size: 0.98rem;
+  font-weight: 600;
+  padding: 0.85rem 2.4rem;
+  border-radius: 8px;
+  border: 2px solid var(--accent);
+  transition: background 0.2s, transform 0.2s, color 0.2s;
+}
+.contact-phone-btn:hover { background: var(--accent); color: #fff; transform: translateY(-2px); }
+.contact-phone-btn svg { width: 18px; height: 18px; }
 .contact-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; }
 .contact-link-card {
   display: flex;

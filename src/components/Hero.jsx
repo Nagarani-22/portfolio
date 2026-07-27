@@ -28,6 +28,15 @@ const SOCIALS = [
     )
   },
   {
+    label: 'Phone',
+    href: 'tel:+919390692071',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.9 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.07-1.07a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+      </svg>
+    )
+  },
+  {
     label: 'HackerRank',
     href: 'https://www.hackerrank.com/profile/guditinagarani',
     icon: (
@@ -51,58 +60,90 @@ export default function Hero() {
   return (
     <section id="hero" className="hero">
       <div className="container">
-        <div className="hero-inner">
-          <div className="hero-badge">
-            <span className="hero-badge-dot" />
-            Open to opportunities
-          </div>
-
-          <h1 className="hero-name">
-            Gudditi <span className="accent">Nagarani</span>
-          </h1>
-
-          <p className="hero-title">Software Engineer</p>
-
-          <p className="hero-tagline">
-            Test automation &amp; frontend development at <strong style={{color:'#a5b4fc'}}>Trellix</strong> (Cybersecurity).
-            Building reliable software in security-critical environments.
-          </p>
-
-          <div className="hero-stats">
-            <div className="hero-stat">
-              <span className="hero-stat-num">1+</span>
-              <span className="hero-stat-label">Year Experience</span>
+        <div className="hero-2col">
+          {/* Left: text content */}
+          <div className="hero-inner">
+            <div className="hero-badge">
+              <span className="hero-badge-dot" />
+              Open to opportunities
             </div>
-            <div className="hero-stat">
-              <span className="hero-stat-num">250+</span>
-              <span className="hero-stat-label">Test Cases Automated</span>
-            </div>
-            <div className="hero-stat">
-              <span className="hero-stat-num">50%</span>
-              <span className="hero-stat-label">Regression Time Saved</span>
-            </div>
-            <div className="hero-stat">
-              <span className="hero-stat-num">200+</span>
-              <span className="hero-stat-label">Defects Identified</span>
-            </div>
-          </div>
 
-          <div className="hero-actions">
-            <a href="/Gudditi_Nagarani_Resume.pdf" download className="btn-primary">
-              Download Resume
-            </a>
-            <a href="#contact" className="btn-outline">
-              Get In Touch
-            </a>
-          </div>
+            <h1 className="hero-name">
+              Gudditi <span className="accent">Nagarani</span>
+            </h1>
 
-          <div className="hero-socials">
-            {SOCIALS.map(s => (
-              <a key={s.label} href={s.href} target="_blank" rel="noreferrer" className="social-link">
-                {s.icon}
-                {s.label}
+            <p className="hero-title">Software Engineer</p>
+
+            <p className="hero-tagline">
+              Test automation &amp; frontend development at{' '}
+              <strong style={{ color: '#a5b4fc' }}>Trellix</strong> (Cybersecurity).
+              Building reliable software in security-critical environments.
+            </p>
+
+            <div className="hero-stats">
+              <div className="hero-stat">
+                <span className="hero-stat-num">1+</span>
+                <span className="hero-stat-label">Year Experience</span>
+              </div>
+              <div className="hero-stat">
+                <span className="hero-stat-num">250+</span>
+                <span className="hero-stat-label">Tests Automated</span>
+              </div>
+              <div className="hero-stat">
+                <span className="hero-stat-num">50%</span>
+                <span className="hero-stat-label">Regression Saved</span>
+              </div>
+              <div className="hero-stat">
+                <span className="hero-stat-num">200+</span>
+                <span className="hero-stat-label">Defects Found</span>
+              </div>
+            </div>
+
+            <div className="hero-actions">
+              <a href="/Gudditi_Nagarani_Resume.pdf" download className="btn-primary">
+                Download Resume
               </a>
-            ))}
+              <a href="#contact" className="btn-outline">
+                Get In Touch
+              </a>
+            </div>
+
+            {/* Icon-only social links */}
+            <div className="hero-socials">
+              {SOCIALS.map(s => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target={s.href.startsWith('mailto') || s.href.startsWith('tel') ? '_self' : '_blank'}
+                  rel="noreferrer"
+                  className="social-icon-link"
+                  title={s.label}
+                >
+                  {s.icon}
+                </a>
+              ))}
+            </div>
+
+            {/* Mobile number text */}
+            <p className="hero-phone">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="14" height="14">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.9 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.07-1.07a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              +91 9390692071
+            </p>
+          </div>
+
+          {/* Right: profile photo */}
+          <div className="hero-photo-wrap">
+            <div className="hero-photo-ring">
+              <img
+                src="/profile.jpg"
+                alt="Gudditi Nagarani"
+                className="hero-photo"
+                onError={e => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
+              />
+              <div className="hero-photo-fallback">GN</div>
+            </div>
           </div>
         </div>
       </div>
