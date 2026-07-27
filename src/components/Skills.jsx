@@ -78,7 +78,7 @@ export default function Skills() {
               </div>
               <div className="skill-tags">
                 {g.tags.map(t => (
-                  <span key={t} className="skill-tag">{t}</span>
+                  <span key={t} className="skill-tag" data-tip={t}>{t}</span>
                 ))}
               </div>
             </div>
