@@ -35,7 +35,7 @@ export default function Navbar() {
   return (
     <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
       <div className="container">
-        <a href="#hero" className="nav-logo" onClick={close}>GN</a>
+        <a href="#hero" className="nav-logo" onClick={close}>Gudditi Nagarani</a>
 
         <ul className={`nav-links${menuOpen ? ' open' : ''}`}>
           {LINKS.map(l => (
