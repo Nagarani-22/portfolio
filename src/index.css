@@ -536,6 +536,9 @@ img { max-width: 100%; display: block; }
   font-size: 0.78rem;
   font-weight: 500;
   padding: 4px 11px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   border-radius: 5px;
   border: 1px solid rgba(255,255,255,0.12);
   transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.15s;
@@ -547,6 +550,14 @@ img { max-width: 100%; display: block; }
   color: #a5b4fc;
   border-color: rgba(129,140,248,0.5);
   transform: translateY(-2px);
+}
+.skill-tech-icon {
+  font-size: 1rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.skill-tech-emoji {
+  font-size: 0.85rem;
 }
 .skill-tag[data-tip]::after {
   content: attr(data-tip);

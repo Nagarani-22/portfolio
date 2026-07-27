@@ -1,5 +1,86 @@
 import useFadeIn from '../hooks/useFadeIn'
 
+// devicon class = rendered as <i> element; emoji string = rendered as text
+const SKILL_ICONS = {
+  // Languages
+  'JavaScript (ES6+)': { type: 'devicon', cls: 'devicon-javascript-plain colored' },
+  'TypeScript':        { type: 'devicon', cls: 'devicon-typescript-plain colored' },
+  'Python':            { type: 'devicon', cls: 'devicon-python-plain colored' },
+  'Java':              { type: 'devicon', cls: 'devicon-java-plain colored' },
+  'SQL':               { type: 'devicon', cls: 'devicon-azuresqldatabase-plain colored' },
+  'HTML5':             { type: 'devicon', cls: 'devicon-html5-plain colored' },
+  'CSS3':              { type: 'devicon', cls: 'devicon-css3-plain colored' },
+  'PHP':               { type: 'devicon', cls: 'devicon-php-plain colored' },
+  // Frontend
+  'Angular':           { type: 'devicon', cls: 'devicon-angularjs-plain colored' },
+  'React.js':          { type: 'devicon', cls: 'devicon-react-original colored' },
+  'Redux':             { type: 'devicon', cls: 'devicon-redux-original colored' },
+  'Bootstrap':         { type: 'devicon', cls: 'devicon-bootstrap-plain colored' },
+  'AG-Grid':           { type: 'emoji', icon: '📊' },
+  // Backend & Database
+  'Node.js':           { type: 'devicon', cls: 'devicon-nodejs-plain colored' },
+  'MySQL':             { type: 'devicon', cls: 'devicon-mysql-plain colored' },
+  'MongoDB':           { type: 'devicon', cls: 'devicon-mongodb-plain colored' },
+  'REST APIs':         { type: 'emoji', icon: '🔗' },
+  'Microservices':     { type: 'emoji', icon: '🔧' },
+  'PostgreSQL':        { type: 'devicon', cls: 'devicon-postgresql-plain colored' },
+  // Test Automation
+  'Selenium WebDriver':    { type: 'devicon', cls: 'devicon-selenium-original colored' },
+  'pytest-bdd':            { type: 'devicon', cls: 'devicon-pytest-plain colored' },
+  'Gherkin / BDD':         { type: 'emoji', icon: '🥒' },
+  'Selenium Grid':         { type: 'devicon', cls: 'devicon-selenium-original colored' },
+  'POM':                   { type: 'emoji', icon: '📐' },
+  'Cross-Browser Testing': { type: 'emoji', icon: '🌐' },
+  'Parallel Execution':    { type: 'emoji', icon: '⚡' },
+  'Playwright':            { type: 'devicon', cls: 'devicon-playwright-plain colored' },
+  // Testing Types
+  'UI Testing':        { type: 'emoji', icon: '🖱️' },
+  'Regression':        { type: 'emoji', icon: '🔁' },
+  'Functional':        { type: 'emoji', icon: '⚙️' },
+  'Smoke':             { type: 'emoji', icon: '💨' },
+  'Sanity':            { type: 'emoji', icon: '✔️' },
+  'API Testing':       { type: 'emoji', icon: '🔌' },
+  'Alert Validation':  { type: 'emoji', icon: '🔔' },
+  'Exploratory':       { type: 'emoji', icon: '🔭' },
+  // CI/CD & Tools
+  'Git':               { type: 'devicon', cls: 'devicon-git-plain colored' },
+  'GitHub':            { type: 'devicon', cls: 'devicon-github-original colored' },
+  'GitHub Actions':    { type: 'devicon', cls: 'devicon-githubactions-plain colored' },
+  'TeamCity':          { type: 'emoji', icon: '🏗️' },
+  'Jira':              { type: 'devicon', cls: 'devicon-jira-plain colored' },
+  'Xray':              { type: 'emoji', icon: '🔍' },
+  'Postman':           { type: 'devicon', cls: 'devicon-postman-plain colored' },
+  'Confluence':        { type: 'devicon', cls: 'devicon-confluence-plain colored' },
+  'VS Code':           { type: 'devicon', cls: 'devicon-vscode-plain colored' },
+  // Core CS
+  'DSA':               { type: 'emoji', icon: '🧮' },
+  'OOP':               { type: 'emoji', icon: '📦' },
+  'DBMS':              { type: 'emoji', icon: '🗄️' },
+  'Operating Systems': { type: 'emoji', icon: '🖥️' },
+  'Computer Networks': { type: 'emoji', icon: '🌐' },
+  // AI & LLM
+  'Claude (Anthropic)':   { type: 'emoji', icon: '✨' },
+  'GitHub Copilot':       { type: 'emoji', icon: '🤖' },
+  'Prompt Engineering':   { type: 'emoji', icon: '📝' },
+  'LLMs':                 { type: 'emoji', icon: '🧠' },
+  'RAG':                  { type: 'emoji', icon: '🔗' },
+  // Methodologies
+  'Agile':                    { type: 'emoji', icon: '🔄' },
+  'Scrum':                    { type: 'emoji', icon: '🏃' },
+  'SDLC':                     { type: 'emoji', icon: '♻️' },
+  'Test Planning':            { type: 'emoji', icon: '📋' },
+  'Quality Assurance (QA)':  { type: 'emoji', icon: '✅' },
+}
+
+function SkillIcon({ name }) {
+  const entry = SKILL_ICONS[name]
+  if (!entry) return null
+  if (entry.type === 'devicon') {
+    return <i className={`${entry.cls} skill-tech-icon`} />
+  }
+  return <span className="skill-tech-icon skill-tech-emoji">{entry.icon}</span>
+}
+
 const SKILL_GROUPS = [
   {
     icon: '💻',
@@ -78,7 +159,10 @@ export default function Skills() {
               </div>
               <div className="skill-tags">
                 {g.tags.map(t => (
-                  <span key={t} className="skill-tag" data-tip={t}>{t}</span>
+                  <span key={t} className="skill-tag" data-tip={t}>
+                    <SkillIcon name={t} />
+                    {t}
+                  </span>
                 ))}
               </div>
             </div>
