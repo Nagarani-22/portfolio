@@ -27,7 +27,7 @@ export default function About() {
   const ref = useFadeIn()
 
   return (
-    <section id="about" className="section section-alt">
+    <section id="about" className="section">
       <div className="container">
         <div className="section-header">
           <span className="section-label">About Me</span>
