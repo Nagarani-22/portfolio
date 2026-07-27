@@ -80,22 +80,22 @@ export default function Hero() {
               Building reliable software in security-critical environments.
             </p>
 
-            <div className="hero-stats">
-              <div className="hero-stat">
-                <span className="hero-stat-num">1+</span>
-                <span className="hero-stat-label">Year Experience</span>
+            <div className="hero-passions">
+              <div className="hero-passion-item">
+                <span className="hero-passion-icon">🔍</span>
+                <span>Passionate Problem Solver</span>
               </div>
-              <div className="hero-stat">
-                <span className="hero-stat-num">250+</span>
-                <span className="hero-stat-label">Tests Automated</span>
+              <div className="hero-passion-item">
+                <span className="hero-passion-icon">🐛</span>
+                <span>Debugging Enthusiast</span>
               </div>
-              <div className="hero-stat">
-                <span className="hero-stat-num">50%</span>
-                <span className="hero-stat-label">Regression Saved</span>
+              <div className="hero-passion-item">
+                <span className="hero-passion-icon">🧪</span>
+                <span>Quality-Driven Tester</span>
               </div>
-              <div className="hero-stat">
-                <span className="hero-stat-num">200+</span>
-                <span className="hero-stat-label">Defects Found</span>
+              <div className="hero-passion-item">
+                <span className="hero-passion-icon">⚡</span>
+                <span>Clean Code Advocate</span>
               </div>
             </div>
 
